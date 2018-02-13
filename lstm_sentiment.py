@@ -267,9 +267,10 @@ if __name__ == '__main__':
         dec = dec.cuda()
     else:
         print('Using CPU :(')
-    num_epochs = 5
-    num_iters = len(train_pairs)*5
-    train_iters(enc, dec, num_iters, lrate=0.2, print_every=1000)
+    num_epochs = 10
+    num_iters = len(train_pairs)*num_epochs
+    train_iters(enc, dec, num_iters, lrate=0.1, print_every=1000)
+    print('Training Done.\nCalculating Scores')
     print(f'Training Accuracy: {score(enc, dec, train_pairs)}')
     print(f'Testing Accuracy: {score(enc, dec, test_pairs)}')
     test_random(enc, dec)
